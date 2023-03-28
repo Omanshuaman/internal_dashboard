@@ -214,6 +214,24 @@ textarea {
   gap: 1em;
   grid-area: bonus;
 }
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 footer {
   display: flex;
 
@@ -294,7 +312,9 @@ footer {
 label {
   display: block;
 }
-
+h6 {
+  display: inline;
+}
 input {
   border: 1px solid #c4c4c4;
   border-radius: 5px;
