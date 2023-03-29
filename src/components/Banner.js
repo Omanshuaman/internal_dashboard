@@ -24,25 +24,19 @@ const Banner = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const options = [
-    { value: "ht", label: "HT & Admin" },
-    { value: "engineering", label: "Engineering" },
-    { value: "support", label: "Support" },
-    { value: "design", label: "Design" },
-    { value: "digital-marketing", label: "Digital Marketing" },
+    { value: "HT & Admin", label: "HT & Admin" },
+    { value: "Engineering", label: "Engineering" },
+    { value: "Support", label: "Support" },
+    { value: "Sales", label: "Sales" },
+    { value: "Design", label: "Design" },
+    { value: "Digital Marketing", label: "Digital Marketing" },
   ];
 
   const options1 = [
-    { value: "0", label: "Fresher" },
-    { value: "1", label: "1 Year" },
-    { value: "2", label: "2 Years" },
-    { value: "3", label: "3 Years" },
-    { value: "4", label: "4 Years" },
-    { value: "5", label: "5 Years" },
-    { value: "6", label: "6 Years" },
-    { value: "7", label: "7 Years" },
-    { value: "8", label: "8 Years" },
-    { value: "9", label: "9 Years" },
-    { value: "10", label: "10+ Years" },
+    { value: "Fresher", label: "Fresher" },
+    { value: "0-1 Years", label: "0-1 Years" },
+    { value: "1-2 Years", label: "1-2 Years" },
+    { value: "2-5 Years", label: "2-5 Years" },
   ];
 
   const options2 = [
@@ -50,12 +44,13 @@ const Banner = () => {
     { value: "10-6", label: "10-6" },
     { value: "10-8", label: "10-8" },
     { value: "12-9", label: "12-9" },
+    { value: "10-7", label: "10-7" },
   ];
 
   const options3 = [
-    { value: "fulltime", label: "Full Time" },
-    { value: "parttime", label: "Part Time" },
-    { value: "contract", label: "Contract" },
+    { value: "Full Time", label: "Full Time" },
+    { value: "Part Time", label: "Part Time" },
+    { value: "Contract", label: "Contract" },
   ];
 
   const handleRoleChange = (event) => {
@@ -126,11 +121,10 @@ const Banner = () => {
       job_type: selectedOption3.value,
       number_of_vacancy: numberOfVacancy,
       education_requirement: educationReq,
-
       what_we_are_looking_for: whatWeAreLookingFor,
       what_you_will_be_doing: whatYouWillBeDoing,
       bonus_point: bonusPoint,
-      perks_benefits: perksBenefits.split(","),
+      perks_benefits: perksBenefits,
       salary: salary,
     };
 
