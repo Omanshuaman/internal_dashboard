@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function Table() {
   const [filter, setFilter] = useState("");
@@ -42,62 +43,29 @@ function Table() {
 }
 
 function TableRow(props) {
-  const rows = [
-    {
-      name: "Omanshu Aman",
-      email: "omanshuaman@gmail.com",
-      contact: "5345",
-      resume: "lfrefddsFutterkiste",
-      appliedDate: "22/07/1997",
-      jobId: "1",
-    },
-    {
-      name: "Omanshu Raman",
-      email: "odsvdcmanshuaman@gmail.com",
-      contact: "4353",
-      resume: "Advdv",
-      appliedDate: "22/07/1997",
-      jobId: "2",
-    },
-    {
-      name: "Himanshu Aman",
-      email: "dvdomanshuaman@gmail.com",
-      contact: "453",
-      resume: "Avdvdv",
-      appliedDate: "22/07/1997",
-      jobId: "3",
-    },
-    {
-      name: "Deepanshu Raman",
-      email: "omadsvnshuaman@gmail.com",
-      contact: "234",
-      resume: "vddv",
-      appliedDate: "22/07/1997",
-      jobId: "4",
-    },
+  const [applicants, setApplicants] = useState([]);
 
-    {
-      name: "Rupanshu Aman",
-      email: "dscmanshuaman@gmail.com",
-      contact: "78676",
-      resume: "vdvdrv",
-      appliedDate: "22/07/1997",
-      jobId: "5",
-    },
-  ];
+  useEffect(() => {
+    axios
+      .get(
+        "https://3pg8ch1ir2.execute-api.us-east-1.amazonaws.com/prod/applicants"
+      )
+      .then((response) => setApplicants(response.data.applicants))
+      .catch((error) => console.log(error));
+  }, []);
 
-  const filteredRows = rows.filter(
-    (row) => row.jobId.toUpperCase().indexOf(props.filter) !== -1
+  const filteredRows = applicants.filter(
+    (row) => row.job_id.toUpperCase().indexOf(props.filter) !== -1
   );
 
   return filteredRows.map((row, index) => (
     <tr key={index} className={index % 2 === 1 ? "highlight-row" : ""}>
       <td className="vertical-line">{row.name}</td>
-      <td className="vertical-line">{row.email}</td>
-      <td className="vertical-line">{row.contact}</td>
-      <td className="vertical-line">{row.resume}</td>
-      <td className="vertical-line">{row.appliedDate}</td>
-      <td className="vertical-line">{row.jobId}</td>
+      <td className="vertical-line">{row.emailid}</td>
+      <td className="vertical-line">{row.contactNumber}</td>
+      <td className="vertical-line">{row.resumeUrl}</td>
+      <td className="vertical-line">{row.applied_date}</td>
+      <td className="vertical-line">{row.job_id}</td>
     </tr>
   ));
 }

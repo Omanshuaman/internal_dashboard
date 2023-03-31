@@ -62,7 +62,6 @@ const Banner = () => {
     const [year, month, day] = selectedDate.split("-");
     const formattedDate = `${day}-${month}-${year}`;
     setDeadline(formattedDate);
-    console.log(formattedDate);
   };
 
   const handleJobPostDateChange = (event) => {
@@ -133,7 +132,6 @@ const Banner = () => {
         "https://nt4k05fl8k.execute-api.us-east-1.amazonaws.com/prod/jobpost",
         formData
       );
-      console.log(response.data);
       // Do something with the response data
     } catch (error) {
       console.error(error);

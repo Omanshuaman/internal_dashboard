@@ -1,14 +1,13 @@
 import React from "react";
 import Divider from "../assests/divider.svg";
-import { useNavigate } from "react-router-dom";
-
+import { useHistory } from "react-router-dom";
 const NavBar = () => {
-  let navigate = useNavigate();
+  const history = useHistory();
   const nextPage = () => {
-    navigate("/applicantInfo");
+    history.push("/applicantInfo");
   };
   const backPage = () => {
-    navigate("/");
+    history.push("/");
   };
   return (
     <div className="navbar">

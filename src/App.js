@@ -1,19 +1,16 @@
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import JobPost from "./pages/JobPost";
 import Applicant from "./pages/Applicant";
+import "./App.css";
 
 import "./App.css";
-export default function App() {
+
+function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<JobPost />}></Route>
-        <Route path="/applicantInfo" element={<Applicant />} />
-      </Routes>
-    </BrowserRouter>
+    <div>
+      <Route path="/" component={JobPost} exact />
+      <Route path="/:applicantInfo" component={Applicant} />
+    </div>
   );
 }
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+export default App;
