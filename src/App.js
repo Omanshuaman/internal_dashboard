@@ -9,7 +9,7 @@ function App() {
   return (
     <div>
       <Route path="/" component={JobPost} exact />
-      <Route path="/:applicantInfo" component={Applicant} />
+      <Route path="/viewApplicants" component={Applicant} />
     </div>
   );
 }

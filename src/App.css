@@ -382,3 +382,7 @@ hr {
 .table td.vertical-line {
   border-left: 1px solid #9cc204;
 }
+.tab-name.selected,
+.applicant-name.selected {
+  font-weight: bold;
+}
