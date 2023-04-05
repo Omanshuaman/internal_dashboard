@@ -67,7 +67,7 @@ img {
   grid-template-areas:
     "nav nav nav nav"
     "department role experience deadline"
-    "jobpostdate location working-hour working-days"
+    "jobpostdate jobpostdate location location"
     "job-type number-vacancy salary job-post-date"
     "looking doing perks bonus"
     "footer footer footer footer";
@@ -141,19 +141,6 @@ nav hr {
   gap: 1em;
 }
 
-#working-hour {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  grid-area: working-hour;
-}
-
-#working-days {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  grid-area: working-days;
-}
 #job-type {
   display: flex;
   flex-direction: column;
@@ -271,9 +258,9 @@ footer {
       "experience"
       "deadline"
       "jobpostdate"
+      "jobpostdate"
       "location"
-      "working-hour"
-      "working-days"
+      "location"
       "job-type"
       "number-vacancy"
       "salary"

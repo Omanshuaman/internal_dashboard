@@ -12,7 +12,6 @@ const Banner = () => {
   const [deadline, setDeadline] = useState("");
   const [jobPostDate, setJobPostDate] = useState("");
   const [location, setLocation] = useState("");
-  const [workingDays, setWorkingsDays] = useState("");
   const [educationReq, setEducationReq] = useState("");
 
   const [numberOfVacancy, setNumberOfVacancy] = useState("");
@@ -24,12 +23,14 @@ const Banner = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const options = [
-    { value: "HT & Admin", label: "HT & Admin" },
-    { value: "Engineering", label: "Engineering" },
-    { value: "Support", label: "Support" },
+    { value: "Technology & IT", label: "Technology & IT" },
+    { value: "Operations", label: "Operations" },
+    { value: "Product Marketing", label: "Product Marketing" },
     { value: "Sales", label: "Sales" },
-    { value: "Design", label: "Design" },
-    { value: "Digital Marketing", label: "Digital Marketing" },
+    { value: "Finance", label: "Finance" },
+    { value: "Legal", label: "Legal" },
+    { value: "HR & Admin", label: "HR & Admin" },
+    { value: "Customer Support", label: "Customer Support" },
   ];
 
   const options1 = [
@@ -37,6 +38,8 @@ const Banner = () => {
     { value: "0-1 Years", label: "0-1 Years" },
     { value: "1-2 Years", label: "1-2 Years" },
     { value: "2-5 Years", label: "2-5 Years" },
+    { value: "5-8 Years", label: "5-8 Years" },
+    { value: "8-10 Years", label: "8-10 Years" },
   ];
 
   const options2 = [
@@ -74,9 +77,7 @@ const Banner = () => {
   const handleLocationChange = (event) => {
     setLocation(event.target.value);
   };
-  const handleWorkingDays = (event) => {
-    setWorkingsDays(event.target.value);
-  };
+
   const handleNumberOfVacancyChange = (event) => {
     setNumberOfVacancy(event.target.value);
   };
@@ -109,14 +110,13 @@ const Banner = () => {
 
     const formData = {
       id: uuidv4(),
+      job_id: Date.now(),
       department: selectedOption.value,
       role: role,
       experience: selectedOption1.value,
       deadline: deadline,
       job_post_date: jobPostDate,
       location: location,
-      working_hour: selectedOption2.value,
-      working_days: workingDays,
       job_type: selectedOption3.value,
       number_of_vacancy: numberOfVacancy,
       education_requirement: educationReq,
@@ -129,7 +129,7 @@ const Banner = () => {
 
     try {
       const response = await axios.post(
-        "https://nt4k05fl8k.execute-api.us-east-1.amazonaws.com/prod/jobpost",
+        "https://0mbq9runce.execute-api.ap-south-1.amazonaws.com/prod/jobpost",
         formData
       );
       // Do something with the response data
@@ -190,18 +190,7 @@ const Banner = () => {
           <div>Location:</div>
           <input className="roleinput" onChange={handleLocationChange}></input>
         </div>
-        <div id="working-hour">
-          <div>Working Hour:</div>
-          <Select
-            defaultValue={selectedOption2}
-            onChange={setSelectedOption2}
-            options={options2}
-          />
-        </div>
-        <div id="working-days">
-          <div>Working Days:</div>
-          <input className="roleinput" onChange={handleWorkingDays}></input>
-        </div>
+
         <div id="job-type">
           <div>Job Type:</div>
           <Select
