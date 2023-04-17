@@ -3,10 +3,7 @@
     {
       "id": 1,
       "name": "John Doe",
-      "username": "johndoe",
-      "email": "johndoe@gmail.com",
-      "phone": "123-456-7890",
-      "website": "johndoe.com"
+      "email": "johndoen@gmail.com"
     },
     {
       "id": 2,
@@ -17,22 +14,9 @@
       "website": "janesmith.com"
     },
     {
-      "id": 3,
-      "name": "Bob Johnson",
-      "username": "bobjohnson",
-      "email": "bobjohnson@gmail.com",
-      "phone": "555-555-5555",
-      "website": "bobjohnson.com"
-    },
-    {
-      "id": "[object Object]1",
-      "name": "omanshu",
-      "email": "amas@gmiiql.com"
-    },
-    {
-      "id": 5,
-      "name": "rg",
-      "email": "fref"
+      "id": 4,
+      "name": "Omasnhu ",
+      "email": "amanoamshy@gmail.com"
     }
   ]
 }

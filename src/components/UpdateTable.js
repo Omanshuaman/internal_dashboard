@@ -39,7 +39,8 @@ const UpdateTable = () => {
     axios
       .put("http://localhost:3000/users/" + editId, {
         id: editId,
-        name: email,
+        name: uname,
+        email: uemail,
       })
       .then((res) => {
         console.log(res);
@@ -48,69 +49,66 @@ const UpdateTable = () => {
       })
       .catch((er) => console.log(er));
   };
+  const handleDelete = (id) => {
+    axios
+      .delete("http://localhost:3000/users/" + id)
+      .then((res) => {
+        window.location.reload(true);
+      })
+      .catch((er) => console.log(er));
+  };
   return (
     <div>
-      <div className="form-div">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Enter Name"
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Enter Email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button>Add</button>
-        </form>
+      <div style={{ overflowX: "auto", maxWidth: "100%" }}>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((user, index) =>
+              user.id === editId ? (
+                <tr key={index}>
+                  <td>{user.id}</td>
+                  <td>
+                    <input
+                      type="text"
+                      value={uname}
+                      onChange={(e) => usetName(e.target.value)}
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      value={uemail}
+                      onChange={(e) => usetEmail(e.target.value)}
+                    />
+                  </td>
+                  <td>
+                    <button onClick={handleUpdate}>Update</button>
+                  </td>
+                </tr>
+              ) : (
+                <tr key={index}>
+                  <td>{user.id}</td>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>
+                    <button onClick={() => handleEdit(user.id)}>edit</button>
+                    <button onClick={() => handleDelete(user.id)}>
+                      delete
+                    </button>
+                  </td>
+                </tr>
+              )
+            )}
+          </tbody>
+        </table>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((user, index) =>
-            user.id === editId ? (
-              <tr>
-                <td>{user.id}</td>
-                <td>
-                  <input
-                    type="text"
-                    value={uname}
-                    onChange={(e) => usetName(e.target.value)}
-                  />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    value={uemail}
-                    onChange={(e) => usetEmail(e.target.value)}
-                  />
-                </td>
-                <td>
-                  <button onClick={handleUpdate}>Update</button>
-                </td>
-              </tr>
-            ) : (
-              <tr key={index}>
-                <td>{user.id}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>
-                  <button onClick={() => handleEdit(user.id)}>edit</button>
-                  <button>delete</button>
-                </td>
-              </tr>
-            )
-          )}
-        </tbody>
-      </table>
     </div>
   );
 };
