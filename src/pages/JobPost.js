@@ -3,7 +3,7 @@ import React from "react";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
-const Applicant = () => {
+const JobPost = () => {
   return (
     <div>
       <Header />
@@ -13,4 +13,4 @@ const Applicant = () => {
   );
 };
 
-export default Applicant;
+export default JobPost;

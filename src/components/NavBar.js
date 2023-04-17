@@ -19,15 +19,13 @@ const NavBar = () => {
         className={`tab-name ${
           location.pathname === "/assignRoles" ? "selected" : ""
         }`}
-        onClick={() => assignPage()}
-      >
+        onClick={() => assignPage()}>
         Assign Roles
       </div>
       <img src={Divider} alt="Your SVG" className="divider-svg" />
       <div
         className={`tab-name ${location.pathname === "/" ? "selected" : ""}`}
-        onClick={() => jobPage()}
-      >
+        onClick={() => jobPage()}>
         Post Job
       </div>
       <img src={Divider} alt="Your SVG" className="divider-svg" />
@@ -35,8 +33,7 @@ const NavBar = () => {
         className={`applicant-name ${
           location.pathname === "/viewApplicants" ? "selected" : ""
         }`}
-        onClick={() => nextPage()}
-      >
+        onClick={() => nextPage()}>
         View Applicants Info
       </div>
     </div>
